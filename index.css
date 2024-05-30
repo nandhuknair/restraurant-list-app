@@ -1,3 +1,7 @@
-.heading {
+#heading {
     color: red;
+}
+body{
+    background-color: rgb(24, 22, 25);
+    color: rgb(215, 214, 214);
 }
