@@ -6,7 +6,7 @@ const Body =()=> {
    const [resList,setResList] = useState([])
    useEffect(()=> {
     fetchData()
-   },[])
+   },[]);
 
    const fetchData = async()=> {
     const data = await fetch(
