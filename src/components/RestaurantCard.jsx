@@ -1,4 +1,3 @@
-const styleCard = {backgroundColor:"rgba(255, 221, 0, 0.046)"}
 import { CDN_URL } from "../utils/constants"
 
 const RestaurantCard =(props)=> {
@@ -11,7 +10,7 @@ const RestaurantCard =(props)=> {
      sla
     } = resData?.info
      return (
-         <div className="res-card" style={styleCard}>
+         <div className="res-card">
              <img className="res-logo" src= {CDN_URL+cloudinaryImageId}/>
              <h3>{name}</h3>
              <h4>{cuisines.join(',  ')}</h4>

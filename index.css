@@ -28,6 +28,7 @@ body{
    letter-spacing: 1px;
    display: flex;
    width: 100%;
+   flex-basis: 50%;
 }
 
 .nav-items > ul > li{
@@ -47,10 +48,13 @@ body{
     border-radius: 10px;
     transition: 0.5s ease;
     border: 1px solid rgba(255, 221, 0, 0.046); 
+    background-color:rgba(255, 221, 0, 0.046);
 }
 
 .res-card:hover {
     border: 1px solid rgba(255, 255, 255, 0.24); 
+    background-color: #ffb3002b;
+    cursor: pointer;
 }
 
 .res-logo {
@@ -67,3 +71,66 @@ body{
     justify-content: center;  
 } 
 
+.filter-section{
+    display: flex;
+    padding-right: 1%;
+    margin-bottom: 3%;
+    justify-content: end;
+}
+.login-btn{
+    background-color: rgb(242, 168, 31);
+    width: 100px;
+    border: none;
+    outline: none;
+    border-radius: 1%;
+}
+.login-btn:hover {
+    background-color: rgb(255, 166, 0);
+    cursor: pointer;
+}
+.search {
+    display: flex;
+    min-width: 15%;
+    justify-content: space-between;
+    border: 0.2px solid rgba(255, 255, 255, 0.321);
+    padding-right: 20px;
+    margin-right: 2%;
+}
+
+.shimmer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .shimmer-card {
+    width: 200px;
+    height: 400px;
+    background-color: #ffb30017;
+    margin: 20px;
+    border-radius: 11px;
+  }
+  
+  .res-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+   .res-info-image {
+    width: 25%;
+    }    
+
+    .res-info-text-container{
+        display: flex;
+        flex-direction: column;
+        padding: 1% 4% ;
+        
+    }
+
+    a{
+        text-decoration: none;
+        color: rgb(215, 214, 214);
+    }
