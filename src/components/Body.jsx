@@ -28,6 +28,8 @@ const Body = () => {
     );
   };
 
+
+
   return filteredResList.length === 0 
   ?(
     <Shimmer/>
