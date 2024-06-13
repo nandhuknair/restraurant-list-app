@@ -36,22 +36,21 @@ const Body = () => {
   )
   :(
     <div className="body">
-      <div className="filter-section">
-        <div className="search">
-          <input type="text" placeholder="Type here.." value={searchText} onChange={(e)=> {
+      <div className="mx-8"> 
+          <input className="border p-2 border-solid"
+            type="text" placeholder="Type here.." value={searchText} onChange={(e)=> {
             setSearchText(e.target.value)
           }} />
-          <button className="search-btn" onClick={()=> {
+          <button className="transition bg-amber-400 hover:bg-black hover:text-white px-4 py-2" 
+            onClick={()=> {
             const filteredList = resList.filter(res=> {
              return res.info.name.toLowerCase().includes(searchText.toLowerCase())
             })
             setFilteredResList(filteredList)
           }}>
           Search</button>
-        </div>
-
         <button
-          className="login-btn"
+          className=" mx-8 mb-5 transition rounded-ss-md bg-amber-400 hover:bg-black hover:text-white px-5 py-4" 
           onClick={() => {
            const filteredResList = resList.filter((res) => res.info.avgRating > 4);
             setFilteredResList(filteredResList);
@@ -61,9 +60,10 @@ const Body = () => {
         </button>
       </div>
 
-      <div className="res-container">
+      <div className="flex flex-wrap justify-center">
         {filteredResList.map((res) => (
-         <Link key={res.info.id} to={"/restaurants/"+res.info.id} className="res-card"> <RestaurantCard resData={res}/> </Link> 
+         <Link key={res.info.id} to={"/restaurants/"+res.info.id} className=" m-5 bg-zinc-100 shadow-md border hover:shadow-xl hover:bg-zinc-200  rounded-lg">  
+         <RestaurantCard resData={res}/> </Link>  
         ))}
       </div>
     </div>

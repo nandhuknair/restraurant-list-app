@@ -10,7 +10,7 @@ const RestaurantCard =(props)=> {
      sla
     } = resData?.info
      return (
-         <div className="res-card">
+         <div className="m-4 p-4 w-[300px]">
              <img className="res-logo" src= {CDN_URL+cloudinaryImageId}/>
              <h3>{name}</h3>
              <h4>{cuisines.join(',  ')}</h4>
