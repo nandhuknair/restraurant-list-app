@@ -1,30 +1,30 @@
 const Shimmer = () => {
     return (
-      <div className="shimmer-container">
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
+      <div className="bg-black flex flex-wrap">
+        <div className="bg-black"></div>
+        <div className="bg-black"></div>
+        <div className="bg-black"></div>
+        <div className="bg-black"></div>
+        <div className="bg-black"></div>
+        <div className="bg-black"></div>
+        <div className="bg-black"></div>
+        <div className="bg-black"></div>
+        <div className="bg-black"></div>
+        <div className="bg-black"></div>
+        <div className="bg-black"></div>
+        <div className="bg-black"></div>
+        <div className="bg-black"></div>
+        <div className="bg-black"></div>
+        <div className="bg-black"></div>
+        <div className="bg-black"></div>
+        <div className="bg-black"></div>
+        <div className="bg-black"></div>
+        <div className="bg-black"></div>
+        <div className="bg-black"></div>
+        <div className="bg-black"></div>
+        <div className="bg-black"></div>
+        <div className="bg-black"></div>
+        <div className="bg-black"></div>
       </div>
     );
   };

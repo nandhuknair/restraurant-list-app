@@ -1,24 +1,30 @@
-import { useState,useEffect } from "react"
+import { useState, useEffect } from "react";
 import { MENU_API } from "./constants";
 
-const useRestaurantInfo =(resID)=> {
-    const [resInfo,setResinfo] = useState()
+const useRestaurantInfo = (resID) => {
+  const [resInfo, setResInfo] = useState(null);
 
-    useEffect(()=> {
-        fetchData()
-    },[])
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(MENU_API + resID);
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const json = await response.json();
+        console.log(json)
+        setResInfo(json.data);
+      } catch (error) {
+        console.error("Fetch error:", error);
+      }
+    };
 
-    const fetchData = async ()=> {
-        const data = await fetch(MENU_API+resID)
-        const josn = await data.josn()
-        setResinfo(josn.data)
-        console.log(josn);
-        console.log(josn.josn);
-
+    if (resID) {
+      fetchData();
     }
+  }, [resID]);
 
+  return resInfo;
+};
 
-    return resInfo
-}
-
-export default useRestaurantInfo ;
+export default useRestaurantInfo;

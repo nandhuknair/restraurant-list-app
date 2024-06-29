@@ -8,15 +8,17 @@ const Body = () => {
   const [resList, setResList] = useState([]);
   const [filteredResList, setFilteredResList] = useState([]);
 
+  const [resMenu,setResMenu] = useState([])
+
   const [searchText,setSearchText] = useState('')
 
   useEffect(() => {
     fetchData();
-  }, []);
+  },[]);
 
   const fetchData = async () => {
     const data = await fetch(
-      " https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.8992675&lng=77.651152&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.8992675&lng=77.651152&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
 
@@ -28,6 +30,16 @@ const Body = () => {
     );
   };
 
+
+  const fetchMenu = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9351929&lng=77.62448069999999&restaurantId=376708"
+    );
+    const json = await data.json();
+    setResMenu(json)
+  };
+
+  console.log(resMenu) 
 
 
   return filteredResList.length === 0 
@@ -52,8 +64,8 @@ const Body = () => {
         <button
           className=" mx-8 mb-5 transition rounded-ss-md bg-amber-400 hover:bg-black hover:text-white px-5 py-4" 
           onClick={() => {
-           const filteredResList = resList.filter((res) => res.info.avgRating > 4);
-            setFilteredResList(filteredResList);
+          const filteredResList = resList.filter((res) => res.info.avgRating > 4);
+          setFilteredResList(filteredResList);
           }}
         >
           Top Rated Restaurant !
@@ -65,6 +77,7 @@ const Body = () => {
          <Link key={res.info.id} to={"/restaurants/"+res.info.id} className=" m-5 bg-zinc-100 shadow-md border hover:shadow-xl hover:bg-zinc-200  rounded-lg">  
          <RestaurantCard resData={res}/> </Link>  
         ))}
+        {}
       </div>
     </div>
   );
