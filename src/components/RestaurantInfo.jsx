@@ -3,13 +3,13 @@ import { useParams } from "react-router-dom";
 import { CDN_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import useRestaurantInfo from "../utils/useRestaurantInfo";
+import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantInfo = () => {
   const { resId } = useParams();
   const resInfo = useRestaurantInfo(resId);
   const [showAll, setShowAll] = useState(false);
 
-  console.log("This is the resinfo of the page to test", resInfo);
 
   if (resInfo === null) {
     return <Shimmer />;
@@ -24,11 +24,19 @@ const RestaurantInfo = () => {
     costForTwoMessage
   } = resInfo?.cards?.[2]?.card?.card?.info || {};
 
+   
   const itemCards = resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[1]?.card?.card?.itemCards || [];
+
+  const categories = resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c)=> 
+      c?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+  )
+
+  // console.log(categories)
 
   const displayedItems = showAll ? itemCards : itemCards.slice(0, 3);
 
   return (
+    <>
     <div className="res-info p-6 bg-gray-100 rounded-lg shadow-lg max-w-2xl mx-auto">
       <img
         src={CDN_URL + cloudinaryImageId}
@@ -54,8 +62,13 @@ const RestaurantInfo = () => {
           </li>
         ))}
       </ul>
-      
     </div>
+    <div className="mt-8">
+        {categories.map((category,index)=>
+          <RestaurantCategory key={category.card.card.title} data={category.card.card}/>
+          )}
+    </div>
+    </>
   );
 };
 

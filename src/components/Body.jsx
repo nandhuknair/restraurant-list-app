@@ -8,9 +8,14 @@ const Body = () => {
   const [resList, setResList] = useState([]);
   const [filteredResList, setFilteredResList] = useState([]);
 
-  const [resMenu,setResMenu] = useState([])
-
   const [searchText,setSearchText] = useState('')
+  const [darkMode,setDarkMode] = useState(false)
+
+  const toggleTheme =()=> {
+    setDarkMode(prevMode => !prevMode)
+  }
+
+  console.log(resList)
 
   useEffect(() => {
     fetchData();
@@ -31,24 +36,13 @@ const Body = () => {
   };
 
 
-  const fetchMenu = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9351929&lng=77.62448069999999&restaurantId=376708"
-    );
-    const json = await data.json();
-    setResMenu(json)
-  };
-
-  console.log(resMenu) 
-
-
   return filteredResList.length === 0 
   ?(
     <Shimmer/>
   )
   :(
     <div className="body">
-      <div className="mx-8"> 
+      <div className="mx-8">  
           <input className="border p-2 border-solid"
             type="text" placeholder="Type here.." value={searchText} onChange={(e)=> {
             setSearchText(e.target.value)
