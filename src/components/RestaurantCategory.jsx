@@ -1,16 +1,14 @@
 import React, { useState } from 'react'
 import ItemList from './ItemList'
 
-function RestaurantCategory({data}) {
+function RestaurantCategory({ data, showItems, setShowIndex }) {
     console.log(data)
 
-    const [showItems,setShowItems] = useState(false)
-
-    const handleAccordian =()=> setShowItems(prev=>!prev)
-    
+    const handleAccordian =()=> {
+      setShowIndex()
+    }
 
   return (
-
     //Accordian  
 
     <div>
@@ -23,7 +21,7 @@ function RestaurantCategory({data}) {
         {showItems&&
         <ItemList items={data?.itemCards}/>}
         </div>
-      </div>
+      </div> 
     </div>
   )
 }

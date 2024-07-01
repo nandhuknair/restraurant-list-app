@@ -10,6 +10,7 @@ const RestaurantInfo = () => {
   const resInfo = useRestaurantInfo(resId);
   const [showAll, setShowAll] = useState(false);
 
+  const [showIndex,setShowIndex] = useState(null)
 
   if (resInfo === null) {
     return <Shimmer />;
@@ -31,7 +32,6 @@ const RestaurantInfo = () => {
       c?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
   )
 
-  // console.log(categories)
 
   const displayedItems = showAll ? itemCards : itemCards.slice(0, 3);
 
@@ -65,7 +65,12 @@ const RestaurantInfo = () => {
     </div>
     <div className="mt-8">
         {categories.map((category,index)=>
-          <RestaurantCategory key={category.card.card.title} data={category.card.card}/>
+          <RestaurantCategory 
+          key={category.card.card.title}
+          data={category.card.card}
+          showItems={index === showIndex ? true : false}
+          setShowIndex={()=> setShowIndex(index)}
+          />
           )}
     </div>
     </>
